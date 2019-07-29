@@ -1,0 +1,7 @@
+{
+  "name": "fs-airbnb-consumer",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
