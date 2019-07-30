@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class ApiService {
 
   baseUrl = 'http://localhost:6063';
+  
   constructor(private http: HttpClient) { }
 
   getAllProperties(){
@@ -19,5 +20,13 @@ export class ApiService {
 
   getUserDetails(id){
     return this.http.get(`${this.baseUrl}/api/users/${id}`);
+  }
+
+  getAllBookings(){
+    return this.http.get(`${this.baseUrl}/api/bookings/`);
+  }
+
+  postBooking(booking){
+
   }
 }
