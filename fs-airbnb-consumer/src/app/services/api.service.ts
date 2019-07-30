@@ -26,7 +26,7 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/api/bookings/`);
   }
 
-  postBooking(booking){
-
+  postBooking(booking, header_request){
+    return this.http.post(`${this.baseUrl}/api/bookings`, booking, header_request);
   }
 }
