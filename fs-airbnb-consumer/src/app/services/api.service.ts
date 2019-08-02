@@ -21,12 +21,4 @@ export class ApiService {
   getUserDetails(id){
     return this.http.get(`${this.baseUrl}/api/users/${id}`);
   }
-
-  getAllBookings(){
-    return this.http.get(`${this.baseUrl}/api/bookings/`);
-  }
-
-  postBooking(booking, header_request){
-    return this.http.post(`${this.baseUrl}/api/bookings`, booking, header_request);
-  }
 }

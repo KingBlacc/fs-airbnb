@@ -25,13 +25,13 @@
                 <ion-icon name="cash" slot="start"></ion-icon>
                 <ion-label text-wrap>R{{information.property_price}}</ion-label>
             </ion-item>
-            <ion-item lines="none">
+            <ion-item lines="none" *ngIf="user.first_name !== null">
                 <ion-icon name="contacts" slot="start"></ion-icon>
                 <ion-label text-wrap>{{user.first_name}} {{user.last_name}}</ion-label>
             </ion-item>
 
         </ion-card-content>
 
-        <ion-button expand="full">Make a booking</ion-button>
+        <ion-button expand="full" [routerLink]="['/', 'booking', information._id]">Make a booking</ion-button>
     </ion-card>
 </ion-content>
