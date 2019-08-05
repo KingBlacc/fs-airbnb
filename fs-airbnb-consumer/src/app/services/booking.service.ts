@@ -11,6 +11,8 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   postBooking(booking, header_request){
-    return this.http.post(`${this.baseUrl}/api/bookings`, booking, header_request);
+    return this.http.post(`${this.baseUrl}/api/bookings`, booking, header_request).subscribe(data => {
+      console.log(data);
+    });
   }
 }

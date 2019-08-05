@@ -1,64 +1,63 @@
 <ion-header>
-  <ion-toolbar>
-  <ion-buttons slot="start">
+    <ion-toolbar>
+        <ion-buttons slot="start">
             <ion-back-button defaultHref="/"></ion-back-button>
         </ion-buttons>
-    <ion-title>booking</ion-title>
+        <ion-title>booking</ion-title>
 
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-  <ion-label>From</ion-label>
-  <ion-datetime displayFormat="DD MMMM YYYY" placeholder="Select Date" min="2019" max="2030"></ion-datetime>
-</ion-item>
-<ion-item>
-  <ion-label>Until</ion-label>
-  <ion-datetime displayFormat="DD MMMM YYYY" placeholder="Select Date"  min="2019"></ion-datetime>
-</ion-item>
+    <ion-item>
+        <ion-label>From</ion-label>
+        <ion-datetime displayFormat="DD MMMM YYYY" placeholder="Select Date" min="2019" max="2030" [(ngModel)]="date_from"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Until</ion-label>
+        <ion-datetime displayFormat="DD MMMM YYYY" placeholder="Select Date" min="2019" [(ngModel)]="date_to"></ion-datetime>
+    </ion-item>
 
-<ion-item>
-    <ion-label>Guest</ion-label>
-      <div>
-        <ion-item>
-        <ion-label>Adults</ion-label>
-        <ion-select placeholder=1>
-          <ion-select-option value=1>1</ion-select-option>
-          <ion-select-option value=2>2</ion-select-option>
-          <ion-select-option value=3>3</ion-select-option>
-          <ion-select-option value=4>4</ion-select-option>
-          <ion-select-option value=5>5</ion-select-option>
-          <ion-select-option value=6>6</ion-select-option>
-          <ion-select-option value=7>7</ion-select-option>
-          <ion-select-option value=8>8</ion-select-option>
-        </ion-select>
-        </ion-item>
+    <ion-item>
+        <ion-label>Guest</ion-label>
+        <div>
+            <ion-item>
+                <ion-label>Adults</ion-label>
+                <ion-select placeholder=1>
+                    <ion-select-option value=1>1</ion-select-option>
+                    <ion-select-option value=2>2</ion-select-option>
+                    <ion-select-option value=3>3</ion-select-option>
+                    <ion-select-option value=4>4</ion-select-option>
+                    <ion-select-option value=5>5</ion-select-option>
+                    <ion-select-option value=6>6</ion-select-option>
+                    <ion-select-option value=7>7</ion-select-option>
+                    <ion-select-option value=8>8</ion-select-option>
+                </ion-select>
+            </ion-item>
 
-          <ion-item>
-        <ion-label>Children</ion-label>
-        <ion-select placeholder=0>
-        <ion-select-option value=0>0</ion-select-option>
-          <ion-select-option value=1>1</ion-select-option>
-          <ion-select-option value=2>2</ion-select-option>
-          <ion-select-option value=3>3</ion-select-option>
-          <ion-select-option value=4>4</ion-select-option>
-          <ion-select-option value=5>5</ion-select-option>
-          <ion-select-option value=6>6</ion-select-option>
-          <ion-select-option value=7>7</ion-select-option>
-        </ion-select>
-        </ion-item>
-      </div>
-  </ion-item>
+            <ion-item>
+                <ion-label>Children</ion-label>
+                <ion-select placeholder=0>
+                    <ion-select-option value=0>0</ion-select-option>
+                    <ion-select-option value=1>1</ion-select-option>
+                    <ion-select-option value=2>2</ion-select-option>
+                    <ion-select-option value=3>3</ion-select-option>
+                    <ion-select-option value=4>4</ion-select-option>
+                    <ion-select-option value=5>5</ion-select-option>
+                    <ion-select-option value=6>6</ion-select-option>
+                    <ion-select-option value=7>7</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </div>
+    </ion-item>
 
-  
+
     <ion-label slot="start">
-      Price Details
+        Price Details
     </ion-label>
-  <ion-item>
-    <ion-label slot="start">Cost excluding tax</ion-label>
-    <ion-label slot="end">R10000</ion-label>
-  </ion-item>
-
-  <ion-button expand="full">Request to book</ion-button>
+    <ion-item>
+        <ion-label slot="start">Cost excluding tax</ion-label>
+        <ion-label slot="end">R10000</ion-label>
+    </ion-item>
+    <ion-button expand="full" (click)="makeBooking()">Request to book</ion-button>
 </ion-content>
