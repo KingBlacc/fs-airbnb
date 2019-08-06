@@ -1,6 +1,7 @@
 import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PropertyService } from 'src/app/services/property.service';
 
 @Component({
   selector: 'app-listings',
@@ -11,14 +12,14 @@ export class ListingsPage implements OnInit {
 
   results: Observable<any>;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
     this.getProperties()
   }
 
   getProperties(){
-    this.results = this.apiService.getAllProperties();
+    this.results = this.propertyService.getAllProperties();
   }
 
 }

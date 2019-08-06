@@ -1,3 +1,4 @@
+import { PropertyService } from './../../services/property.service';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from './../../services/booking.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,16 +12,25 @@ import { AlertController } from '@ionic/angular';
 })
 export class BookingPage implements OnInit {
 
-  date_from: any;
-  date_to: any;
-  booking_id: any;
-
+  date_from: any = null;
+  date_to: any = null;
+  property_id: any;
+  adult_count: Number = 1;
+  children_count: Number = 0;
+  property_details: any;
+  total_price: Number;
+  
   constructor(private bookingService: BookingService,
               private activateRoute: ActivatedRoute,
-              private alertCtrl: AlertController) { }
+              private alertCtrl: AlertController,
+              private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.booking_id = this.activateRoute.snapshot.paramMap.get('id');
+    this.property_id = this.activateRoute.snapshot.paramMap.get('id');
+
+    this.propertyService.getPropertyDetails(this.property_id).subscribe(result => {
+      this.property_details = result;
+    });
   }
 
   async presentAlert(err, msg) {
@@ -37,18 +47,20 @@ export class BookingPage implements OnInit {
     const requestOptions = {
       headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
     };
-    let booking_data = {
-      "date_from": this.date_from,
-      "date_to": this.date_to,
-      "user_id": "5d3df72b3f4dd1144814f756",
-      "property_id": this.booking_id,
-      "booking_status": "NEW"
-    }
 
-    try {
+    if (this.date_from == null || this.date_to == null) {
+      this.presentAlert("Please make sure that you've selected an appropriate time period", "Invalid Date");
+    } else {
+      let booking_data = {
+        "date_from": this.date_from,
+        "date_to": this.date_to,
+        "user_id": "5d3df72b3f4dd1144814f756",
+        "property_id": this.property_id,
+        "booking_status": "NEW"
+      }
       this.bookingService.postBooking(booking_data, requestOptions);
-    } catch (error) {
-      this.presentAlert(error, "Error Message")
     }
+    
   }
+
 }

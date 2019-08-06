@@ -14,6 +14,7 @@ app.use(cors());
 app.use('/api/users', require('./src/routes/user_routes'));
 app.use('/api/properties', require('./src/routes/property_routes'));
 app.use('/api/bookings', require('./src/routes/booking_routes'));
+// app.use('/api/login', require('./src/services/auth_service'));
 
 //Connection to Database
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true },

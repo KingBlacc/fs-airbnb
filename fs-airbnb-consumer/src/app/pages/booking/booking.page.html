@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/"></ion-back-button>
         </ion-buttons>
-        <ion-title>booking</ion-title>
+        <ion-title>Booking</ion-title>
 
     </ion-toolbar>
 </ion-header>
@@ -23,7 +23,7 @@
         <div>
             <ion-item>
                 <ion-label>Adults</ion-label>
-                <ion-select placeholder=1>
+                <ion-select placeholder=1 [(ngModel)]="adult_count">
                     <ion-select-option value=1>1</ion-select-option>
                     <ion-select-option value=2>2</ion-select-option>
                     <ion-select-option value=3>3</ion-select-option>
@@ -37,7 +37,7 @@
 
             <ion-item>
                 <ion-label>Children</ion-label>
-                <ion-select placeholder=0>
+                <ion-select placeholder=0 [(ngModel)]="children_count">
                     <ion-select-option value=0>0</ion-select-option>
                     <ion-select-option value=1>1</ion-select-option>
                     <ion-select-option value=2>2</ion-select-option>
@@ -55,9 +55,9 @@
     <ion-label slot="start">
         Price Details
     </ion-label>
-    <ion-item>
+    <!-- <ion-item>
         <ion-label slot="start">Cost excluding tax</ion-label>
         <ion-label slot="end">R10000</ion-label>
-    </ion-item>
+    </ion-item> -->
     <ion-button expand="full" (click)="makeBooking()">Request to book</ion-button>
 </ion-content>

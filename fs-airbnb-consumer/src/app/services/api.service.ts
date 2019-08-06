@@ -10,14 +10,6 @@ export class ApiService {
   
   constructor(private http: HttpClient) { }
 
-  getAllProperties(){
-    return this.http.get(`${this.baseUrl}/api/properties/`);
-  }
-
-  getPropertyDetails(id){
-    return this.http.get(`${this.baseUrl}/api/properties/${id}`);
-  }
-
   getUserDetails(id){
     return this.http.get(`${this.baseUrl}/api/users/${id}`);
   }
