@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: 'listings', loadChildren: './pages/listings/listings.module#ListingsPageModule' },
   { path: 'listings/:id', loadChildren: './pages/listings-details/listings-details.module#ListingsDetailsPageModule' },
   { path: 'createproperty', loadChildren: './pages/create-property/create-property.module#CreatePropertyPageModule' },
+  { path: 'property/:id', loadChildren: './pages/edit-property/edit-property.module#EditPropertyPageModule' },
+
 ];
 
 @NgModule({
