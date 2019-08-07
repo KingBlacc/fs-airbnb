@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { CreatePropertyPage } from './../create-property/create-property.page';
 import { Property } from './../../shared/models/property';
 import { Component, OnInit } from '@angular/core';
@@ -14,12 +15,14 @@ import { Router } from '@angular/router';
 export class ListingsPage implements OnInit {
 
   properties: Observable<any>;
-  userId: String = "5d3df6f33f4dd1144814f754";
+  userId: String;
   constructor(private propertyService: PropertyService,
               private navController: NavController,
-              private router: Router) { }
+              private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit() {
+    this.userId = this.authService.getUserId();
     this.getData();
   }
 

@@ -54,4 +54,9 @@ export class EditPropertyPage implements OnInit {
     await alert.present();
   }
 
+  editListing(){
+    let _id = this.property_id;
+    this.router.navigateByUrl("['property/', _id]");
+  }
+
 }
