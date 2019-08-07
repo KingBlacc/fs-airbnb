@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { PropertyService } from './../../services/property.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from './../../services/booking.service';
@@ -24,9 +25,15 @@ export class BookingPage implements OnInit {
               private activateRoute: ActivatedRoute,
               private alertCtrl: AlertController,
               private propertyService: PropertyService,
-              private router: Router) { }
+              private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit() {
+
+    if(this.authService.getUserId() == null){
+      this.router.navigateByUrl('/login');
+    }
+
     this.property_id = this.activateRoute.snapshot.paramMap.get('id');
 
     this.propertyService.getPropertyDetails(this.property_id).subscribe(result => {
@@ -55,11 +62,13 @@ export class BookingPage implements OnInit {
       let booking_data = {
         "date_from": this.date_from,
         "date_to": this.date_to,
-        "user_id": "5d3df72b3f4dd1144814f756",
+        "user_id": this.authService.getUserId(),
         "property_id": this.property_id,
         "booking_status": "NEW"
       }
       this.bookingService.postBooking(booking_data, requestOptions);
+      this.presentAlert("Booking has been sent", "Booking Submitted");
+        this.router.navigateByUrl('/listings');
     }
     
   }

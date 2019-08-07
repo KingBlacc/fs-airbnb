@@ -5,17 +5,17 @@ const authService = require('../services/auth_service');
 //User login
 router.post('/login', (req, res) => {
     authService.prototype.login(req.body).then(data => {
-        res.json({ msg: 'User has logged in successfully' });
+        res.json(data);
     }).catch(err => {
-        res.json({ msg: err });
+        res.json("Error");
     });
 });
 
 router.post('/register', (req, res) => {
     authService.prototype.register(req.body).then(data => {
-        res.json({ msg: 'User has been added successfully' });
+        res.json(data);
     }).catch(err => {
-        res.json({ msg: err });
+        res.json("Error");
     });
 });
 

@@ -7,18 +7,21 @@
 <ion-content>
     <ion-item>
         <ion-label>Property Name</ion-label>
-        <ion-input>{{property_details.property_name}}</ion-input>
+        <ion-input [(ngModel)]="property_name">{{property_details.property_name}}</ion-input>
     </ion-item>
     <ion-item>
         <ion-label>Property Location</ion-label>
-        <ion-input>{{property_details.property_location}}</ion-input>
+        <ion-input [(ngModel)]="property_location">{{property_details.property_location}}</ion-input>
     </ion-item>
     <ion-item>
-        <ion-label></ion-label>
-        <ion-input></ion-input>
+        <ion-label>Property Cost Per/Night</ion-label>
+        <ion-input [(ngModel)]="property_price">{{property_details.property_price}}</ion-input>
     </ion-item>
     <ion-item>
-        <ion-label></ion-label>
-        <ion-input></ion-input>
+        <ion-label>Property Image URL</ion-label>
+        <ion-input [(ngModel)]="property_image_url">{{property_details.property_image_url}}</ion-input>
     </ion-item>
+    <ion-button (click)="updateProperty()">
+        Save Updates
+    </ion-button>
 </ion-content>

@@ -1,6 +1,7 @@
+import { AuthService } from './../../services/auth.service';
 import { PropertyService } from './../../services/property.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../services/api.service';
 
 @Component({
@@ -14,9 +15,12 @@ export class ListingsDetailsPage implements OnInit {
   user = null;
   constructor(private activatedRoute: ActivatedRoute,
               private apiService: ApiService,
-              private propertyService: PropertyService) { }
+              private propertyService: PropertyService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    if(this.authService.getUserId() == null){
+      this.router.navigateByUrl('/login');
+    }
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.propertyService.getPropertyDetails(id).subscribe(result => {

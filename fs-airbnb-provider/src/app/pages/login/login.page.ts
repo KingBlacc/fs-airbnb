@@ -1,6 +1,7 @@
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Alert } from 'selenium-webdriver';
 import { Router } from '@angular/router';
 
 @Component({

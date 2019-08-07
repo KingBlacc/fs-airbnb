@@ -12,24 +12,21 @@ module.exports = class AuthService {
                     reject("This email has already been assigned to a user");
                 } else {
                     const new_user = new User({
-                        first_name: req.body.first_name,
-                        last_name: req.body.last_name,
-                        email: req.body.email,
-                        password: req.body.password,
-                        cell_number: req.body.cell_number,
-                        user_type: req.body.user_type
+                        first_name: user.first_name,
+                        last_name: user.last_name,
+                        email: user.email,
+                        password: user.password,
+                        cell_number: user.cell_number,
+                        user_type: user.user_type
                     });
 
                     new_user
                         .save()
                         .then(data => {
-                            res.json({
-                                msg: "User has been added successfully",
-                                user: data
-                            });
+                            resolve(data._id);
                         })
                         .catch(err => {
-                            res.json({ msg: err });
+                            resolve(err);
                         });
                 }
             });
@@ -42,7 +39,7 @@ module.exports = class AuthService {
             User.findOne({ email }).then((res, err) => {
                 if (res) {
                     if (bcrypt.compareSync(user.password, res.password)) {
-                        resolve(res);
+                        resolve(res._id);
                     } else {
                         reject("Password incorrect");
                     }

@@ -5,9 +5,9 @@ module.exports = class ValidationService {
     checkEmailAvailable(email) {
         return User.findOne({ email: email }).then(function(result) {
             if (result) {
-                return false;
-            } else {
                 return true;
+            } else {
+                return false;
             }
         });
     }

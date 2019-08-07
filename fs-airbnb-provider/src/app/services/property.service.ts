@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class PropertyService {
 
   baseUrl = 'http://localhost:6063';
-  
+  requestOptions = {
+    headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
+  };
+
   constructor(private http: HttpClient) { }
 
   getListings(){
@@ -22,5 +25,9 @@ export class PropertyService {
     this.http.post(`${this.baseUrl}/api/properties/`, property, headers).subscribe(data => {
       console.log(data);
     });
+  }
+
+  updateProperty(property, id){
+    this.http.post(`${this.baseUrl}/api/properties/${id}`, property, this.requestOptions);
   }
 }

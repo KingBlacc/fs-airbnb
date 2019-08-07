@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Property } from './../../shared/models/property';
 import { PropertyService } from './../../services/property.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,14 +16,15 @@ export class CreatePropertyPage implements OnInit {
   public location: String;
   public price: Number;
   public image_url: String;
-  public user_id = "5d3df72b3f4dd1144814f756";
+  public user_id: String;
   public address_line: String;
   public city_name: String;
   public country: String;
   public postal_code: Number;
 
   constructor(private alertCtrl: AlertController,
-              private propertyService: PropertyService) { }
+              private propertyService: PropertyService,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -39,7 +41,7 @@ export class CreatePropertyPage implements OnInit {
         "property_location": this.location,
         "property_price": this.price,
         "property_image_url": this.image_url,
-        "user_id": this.user_id
+        "user_id": this.authService.getUserId()
       }
 
       this.propertyService.createProperty(property, requestOptions);
