@@ -1,9 +1,10 @@
+import { CreatePropertyPage } from './../create-property/create-property.page';
 import { Property } from './../../shared/models/property';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PropertyService } from '../../services/property.service';
-import { JsonPipe } from '@angular/common';
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listings',
@@ -15,7 +16,8 @@ export class ListingsPage implements OnInit {
   properties: Observable<any>;
   userId: String = "5d3df6f33f4dd1144814f754";
   constructor(private propertyService: PropertyService,
-              private navController: NavController) { }
+              private navController: NavController,
+              private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -26,6 +28,6 @@ export class ListingsPage implements OnInit {
   }
 
   navigateToCreate(){
-    this.navController.navigateForward('../create-property/')
+    this.router.navigateByUrl('/createproperty');
   }
 }

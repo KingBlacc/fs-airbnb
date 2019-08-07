@@ -1,5 +1,5 @@
 import { PropertyService } from './../../services/property.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from './../../services/booking.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
@@ -23,7 +23,8 @@ export class BookingPage implements OnInit {
   constructor(private bookingService: BookingService,
               private activateRoute: ActivatedRoute,
               private alertCtrl: AlertController,
-              private propertyService: PropertyService) { }
+              private propertyService: PropertyService,
+              private router: Router) { }
 
   ngOnInit() {
     this.property_id = this.activateRoute.snapshot.paramMap.get('id');
@@ -61,6 +62,10 @@ export class BookingPage implements OnInit {
       this.bookingService.postBooking(booking_data, requestOptions);
     }
     
+  }
+
+  cancelBooking(){
+    this.router.navigateByUrl('listings');
   }
 
 }
