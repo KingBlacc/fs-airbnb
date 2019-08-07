@@ -1,5 +1,8 @@
 <ion-header>
     <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="listings"></ion-back-button>
+        </ion-buttons>
         <ion-title>New Listing</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -7,21 +10,21 @@
 <ion-content>
     <h3>Create Post</h3>
     <ion-card>
-        <ion-input placeholder="Enter property name">{{name}}</ion-input>
-        <ion-input placeholder="Street Address">{{address_line}}</ion-input>
-        <ion-input placeholder="City">{{city_name}}</ion-input>
-        <ion-input placeholder="Country">{{country}}</ion-input>
-        <ion-input placeholder="Postal Code" type="number">{{postal_code}}</ion-input>
+        <ion-input placeholder="Enter property name" [(ngModel)]="name"></ion-input>
+        <ion-input placeholder="Street Address" [(ngModel)]="address_line"></ion-input>
+        <ion-input placeholder="City" [(ngModel)]="city_name"></ion-input>
+        <ion-input placeholder="Country" [(ngModel)]="country"></ion-input>
+        <ion-input placeholder="Postal Code" type="number" [(ngModel)]="postal_code"></ion-input>
     </ion-card>
 
     <ion-item>
         <ion-card>
             <ion-label>Add an image url</ion-label>
-            <ion-input pattern="url">{{image_url}}</ion-input>
+            <ion-input pattern="url" [(ngModel)]="image_url"></ion-input>
             <ion-label>Listing Price</ion-label>
-            <ion-input type="number">R{{price}}</ion-input>
+            <ion-input type="number" [(ngModel)]="price" placeholder="Enter the cost"></ion-input>
         </ion-card>
     </ion-item>
 
-    <ion-button (click)="postListing()">Post Listing</ion-button>
+    <ion-button (click)="postListing()" [routerLink]="['/', 'createproperty']">Post Listing</ion-button>
 </ion-content>

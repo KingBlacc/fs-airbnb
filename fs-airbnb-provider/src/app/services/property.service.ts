@@ -19,6 +19,8 @@ export class PropertyService {
   }
 
   createProperty(property, headers){
-    this.http.post(`${this.baseUrl}/api/properties`, property, headers);
+    this.http.post(`${this.baseUrl}/api/properties/`, property, headers).subscribe(data => {
+      console.log(data);
+    });
   }
 }

@@ -11,15 +11,15 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class CreatePropertyPage implements OnInit {
 
-  name: String = null;
-  locaton: String = null;
-  price: Number;
-  image_url: String = null;
-  user_id = "5d3df72b3f4dd1144814f756";
-  address_line: String;
-  city_name: String;
-  country: String;
-  postal_code: Number;
+  public name: String;
+  public location: String;
+  public price: Number;
+  public image_url: String;
+  public user_id = "5d3df72b3f4dd1144814f756";
+  public address_line: String;
+  public city_name: String;
+  public country: String;
+  public postal_code: Number;
 
   constructor(private alertCtrl: AlertController,
               private propertyService: PropertyService) { }
@@ -31,21 +31,18 @@ export class CreatePropertyPage implements OnInit {
     const requestOptions = {
       headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
     };
-    this.locaton = this.address_line + ", "+ this.city_name + ", " + this.country + ", " + this.postal_code;
-    // if(this.name == null || this.locaton == null 
-    //     || this.image_url == null ){
-    //       this.presentAlert("", "All fields are required");
-    // }else{
+
+    this.location = this.address_line + ", "+ this.city_name + ", " + this.country + ", " + this.postal_code;
+
       let property = {
         "property_name": this.name,
-        "property_location": this.locaton,
+        "property_location": this.location,
         "property_price": this.price,
         "property_image_url": this.image_url,
         "user_id": this.user_id
       }
 
       this.propertyService.createProperty(property, requestOptions);
-    // }
   }
 
   async presentAlert(err, msg) {

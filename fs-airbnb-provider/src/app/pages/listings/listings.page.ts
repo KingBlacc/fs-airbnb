@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PropertyService } from '../../services/property.service';
 import { JsonPipe } from '@angular/common';
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-listings',
   templateUrl: './listings.page.html',
@@ -12,7 +14,8 @@ export class ListingsPage implements OnInit {
 
   properties: Observable<any>;
   userId: String = "5d3df6f33f4dd1144814f754";
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: PropertyService,
+              private navController: NavController) { }
 
   ngOnInit() {
     this.getData();
@@ -22,4 +25,7 @@ export class ListingsPage implements OnInit {
     this.properties = this.propertyService.getListings();
   }
 
+  navigateToCreate(){
+    this.navController.navigateForward('../create-property/')
+  }
 }

@@ -27,7 +27,6 @@ router.post('/', (req, res) => {
         property_image_url: req.body.property_image_url,
         user_id: req.body.user_id
     });
-
     _new_property.save().then(data => {
         res.json({ msg: 'New property has successfully been loaded' });
     }).catch(err => {
