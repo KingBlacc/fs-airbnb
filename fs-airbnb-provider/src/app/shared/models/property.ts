@@ -6,8 +6,7 @@ export class Property {
     property_image_url: String;
     user_id: String;
 
-    constructor(_id, property_name, property_location, property_price, property_image_url, user_id){
-        this._id = _id;
+    constructor( property_name, property_location, property_price, property_image_url, user_id){
         this.property_name = property_name;
         this.property_location = property_location;
         this.property_price = property_price;
