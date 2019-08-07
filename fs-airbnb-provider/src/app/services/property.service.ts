@@ -14,7 +14,11 @@ export class PropertyService {
     return this.http.get(`${this.baseUrl}/api/properties`);
   }
 
-  updateListing(){
-    
+  getPropertyDetails(id){
+    return this.http.get(`${this.baseUrl}/api/properties/${id}`);
+  }
+
+  createProperty(property, headers){
+    this.http.post(`${this.baseUrl}/api/properties`, property, headers);
   }
 }

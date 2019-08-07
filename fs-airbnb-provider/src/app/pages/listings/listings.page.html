@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'listings', item._id]">
+    <ion-list *ngFor="let item of (properties | async)">
+        <ion-item button [routerLink]="['/', 'listings', item._id]" *ngIf="item.user_id == userId">
             <ion-avatar slot="start">
                 <img [src]="item.property_image_url">
             </ion-avatar>
@@ -16,4 +16,5 @@
             </ion-label>
         </ion-item>
     </ion-list>
+    <ion-button expand="full">Create New Property</ion-button>
 </ion-content>
