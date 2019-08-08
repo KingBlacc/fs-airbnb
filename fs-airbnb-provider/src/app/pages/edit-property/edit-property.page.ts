@@ -23,8 +23,7 @@ export class EditPropertyPage implements OnInit {
               private alertCtrl: AlertController) { }
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.property_id = id;
+    let id = this.propertyService.getCurrentPropertyId();
     this.propertyService.getPropertyDetails(id).subscribe(data => {
       this.property_details = data;
     });
@@ -54,9 +53,5 @@ export class EditPropertyPage implements OnInit {
     await alert.present();
   }
 
-  editListing(){
-    let _id = this.property_id;
-    this.router.navigateByUrl("['property/', _id]");
-  }
 
 }

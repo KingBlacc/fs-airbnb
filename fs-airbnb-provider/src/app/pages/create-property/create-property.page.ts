@@ -4,6 +4,7 @@ import { PropertyService } from './../../services/property.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-property',
@@ -24,9 +25,13 @@ export class CreatePropertyPage implements OnInit {
 
   constructor(private alertCtrl: AlertController,
               private propertyService: PropertyService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
+    if(this.authService.getUserId() == null){
+      this.router.navigateByUrl('/login');
+    }
   }
 
   postListing(){
@@ -45,6 +50,8 @@ export class CreatePropertyPage implements OnInit {
       }
 
       this.propertyService.createProperty(property, requestOptions);
+      this.presentAlert("New listing created", "Listing Added");
+      this.router.navigateByUrl('/listings');
   }
 
   async presentAlert(err, msg) {

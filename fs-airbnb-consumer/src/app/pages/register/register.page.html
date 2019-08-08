@@ -12,4 +12,6 @@
     <ion-input placeholder="Enter cellphone number" [(ngModel)]="cell_number"></ion-input>
 
     <ion-button (click)="register()">Register</ion-button>
+
+    <ion-label button [routerLink]="['/', 'login']">I already have an account</ion-label>
 </ion-content>

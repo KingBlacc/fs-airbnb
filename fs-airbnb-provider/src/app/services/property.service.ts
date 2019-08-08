@@ -7,6 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PropertyService {
 
   baseUrl = 'http://localhost:6063';
+  current_propertyId;
+
   requestOptions = {
     headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
   };
@@ -29,5 +31,13 @@ export class PropertyService {
 
   updateProperty(property, id){
     this.http.post(`${this.baseUrl}/api/properties/${id}`, property, this.requestOptions);
+  }
+
+  setCurrentPropertyId(id){
+    this.current_propertyId = id;
+  }
+
+  getCurrentPropertyId(){
+    return this.current_propertyId;
   }
 }

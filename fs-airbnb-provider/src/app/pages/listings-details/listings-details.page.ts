@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListingsDetailsPage implements OnInit {
 
   information = null;
-  propertyId;
 
   constructor(private activatedRoute: ActivatedRoute,
               private propertyService: PropertyService,
@@ -18,14 +17,14 @@ export class ListingsDetailsPage implements OnInit {
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.propertyId = id;
+    this.propertyService.setCurrentPropertyId(id);
     this.propertyService.getPropertyDetails(id).subscribe(result => {
       console.log('details: ', result);
       this.information = result;});
   }
 
   editProperty(){
-    this.router.navigateByUrl(`property/${this.propertyId}`);
+    this.router.navigateByUrl('property/edit');
   }
 
 }
