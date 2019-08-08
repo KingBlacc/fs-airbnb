@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'listings/:id', loadChildren: './pages/listings-details/listings-details.module#ListingsDetailsPageModule' },
   { path: 'booking/:id', loadChildren: './pages/booking/booking.module#BookingPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+  { path: 'profile', loadChildren: './pages/user-profile/user-profile.module#UserProfilePageModule' },
+
 ];
 
 @NgModule({

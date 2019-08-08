@@ -16,17 +16,16 @@ export class EditPropertyPage implements OnInit {
   property_location: String;
   property_image_url: String;
   property_price: Number;
-  
+  information = null;
+
   constructor(private activatedRoute: ActivatedRoute,
               private propertyService: PropertyService,
               private router: Router,
               private alertCtrl: AlertController) { }
 
   ngOnInit() {
-    let id = this.propertyService.getCurrentPropertyId();
-    this.propertyService.getPropertyDetails(id).subscribe(data => {
-      this.property_details = data;
-    });
+    this.information = this.propertyService.getCurrentProperty();
+    this.property_details = this.property_details;
   }
 
   updateProperty(){

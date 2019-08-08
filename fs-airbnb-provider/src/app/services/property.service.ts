@@ -8,6 +8,7 @@ export class PropertyService {
 
   baseUrl = 'http://localhost:6063';
   current_propertyId;
+  currentProperty;
 
   requestOptions = {
     headers: new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
@@ -39,5 +40,13 @@ export class PropertyService {
 
   getCurrentPropertyId(){
     return this.current_propertyId;
+  }
+
+  setCurrentProperty(property){
+    this.currentProperty = property;
+  }
+
+  getCurrentProperty(){
+    return this.currentProperty;
   }
 }

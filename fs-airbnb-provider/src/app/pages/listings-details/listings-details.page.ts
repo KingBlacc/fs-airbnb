@@ -21,6 +21,7 @@ export class ListingsDetailsPage implements OnInit {
     this.propertyService.getPropertyDetails(id).subscribe(result => {
       console.log('details: ', result);
       this.information = result;});
+      this.propertyService.setCurrentProperty(this.information);
   }
 
   editProperty(){

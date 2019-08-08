@@ -19,6 +19,10 @@ export class AuthService {
     return this.http.get(`${this.baseUrl}/api/users`);
   }
 
+  getUsersById(id){
+    return this.http.get(`${this.baseUrl}/api/users/${id}`);
+  }
+
   registerUser(user){
     return this.http.post(`${this.baseUrl}/api/auth/register`, user, this.requestOptions);
   }
