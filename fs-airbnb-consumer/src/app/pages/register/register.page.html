@@ -5,13 +5,23 @@
 </ion-header>
 
 <ion-content>
-    <ion-input placeholder="First Name" [(ngModel)]="first_name"></ion-input>
-    <ion-input placeholder="Last Name" [(ngModel)]="last_name"></ion-input>
-    <ion-input placeholder="Please enter an email" [(ngModel)]="email"></ion-input>
-    <ion-input placeholder="Please enter password" [(ngModel)]="password"></ion-input>
-    <ion-input placeholder="Enter cellphone number" [(ngModel)]="cell_number"></ion-input>
+    <div class="credentials_container" id="contact_fields">
+        <ion-input placeholder="First Name" [(ngModel)]="first_name"></ion-input>
+        <ion-input placeholder="Last Name" [(ngModel)]="last_name"></ion-input>
+        <ion-input placeholder="Please enter an email" [(ngModel)]="email"></ion-input>
+        <ion-input placeholder="Enter cellphone number" [(ngModel)]="cell_number"></ion-input>
+        <div id="button_container">
+            <ion-button (click)="proceed()" expand="full">Proceed</ion-button>
+        </div>
+    </div>
 
-    <ion-button (click)="register()">Register</ion-button>
+    <div class="credentials_container" id="password_fields">
+        <ion-input placeholder="Please enter password" [(ngModel)]="password"></ion-input>
+        <ion-input placeholder="Please confirm password" [(ngModel)]="confirm_password"></ion-input>
+        <div id="button_container">
+            <ion-button (click)="register()" expand="full">Register</ion-button>
+        </div>
+    </div>
 
     <ion-label button [routerLink]="['/', 'login']">I already have an account</ion-label>
 </ion-content>

@@ -1,8 +1,15 @@
 ion-card {
     margin-top: 25%;
+    padding: 10px;
 }
 
 ion-button {
     margin: 15px;
-    border-radius: 15px;
+    --background: #fc595e;
+}
+
+ion-input {
+    --padding: 5px;
+    margin: 10px;
+    --background: #fff;
 }

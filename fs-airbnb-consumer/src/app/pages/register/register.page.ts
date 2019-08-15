@@ -14,6 +14,7 @@ export class RegisterPage implements OnInit {
   last_name: String = null;
   email: String = null;
   password: String = null;
+  confirm_password: String = null;
   cell_number: String = null;
   user_type: String = "consumer";
 
@@ -25,26 +26,29 @@ export class RegisterPage implements OnInit {
   }
 
   register(){
-    if (this.first_name == null || this.last_name == null || this.email == null || 
-      this.password == null || this.cell_number == null) {
-      this.presentAlert("Please fill in all the fields", "Registration Error");
+    if (this.password == null) {
+      this.presentAlert("Please fill password fields", "Registration Error");
     } else {
-      let user = {
-        "first_name": this.first_name,
-        "last_name": this.last_name,
-        "email": this.email,
-        "password": this.password,
-        "cell_number": this.cell_number,
-        "user_type": this.user_type
-      }
-      this.authService.registerUser(user).subscribe(data => {
-        if(data == "Error"){
-          this.presentAlert("Email address already exists", "Registration Failed")
-        }else{
-          this.authService.setUserId(data);
-          this.goToLogin();
+      if (this.password !== this.confirm_password) {
+        this.presentAlert("Passwords do not match each other", "Registration Error");
+      } else {
+        let user = {
+          "first_name": this.first_name,
+          "last_name": this.last_name,
+          "email": this.email,
+          "password": this.password,
+          "cell_number": this.cell_number,
+          "user_type": this.user_type
         }
-    });
+        this.authService.registerUser(user).subscribe(data => {
+          if(data == "Error"){
+            this.presentAlert("Email address already exists", "Registration Failed")
+          }else{
+            this.authService.setUserId(data);
+            this.goToLogin();
+          }
+      });
+      }
     }
   }
 
@@ -61,6 +65,17 @@ export class RegisterPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  proceed(){
+    if (this.first_name == null || this.last_name == null || this.email == null || this.cell_number == null) {
+      this.presentAlert("Please make sure that you fill in all the necessary fields", "Required Fields");
+      document.getElementById("contact_fields").style.display = "block";
+      document.getElementById("").style.display = "none";
+    } else {
+      document.getElementById("contact_fields").style.display = "none";
+      document.getElementById("password_fields").style.display = "block";
+    }
   }
 
 }

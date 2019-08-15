@@ -6,16 +6,16 @@
 
 <ion-content>
     <ion-card>
-        <ion-item>
+        <div>
             <h3>Email Address</h3>
             <ion-input [(ngModel)]="email" type="email"></ion-input>
-        </ion-item>
-        <ion-item>
+        </div>
+        <div>
             <h3>Password</h3>
             <ion-input [(ngModel)]="password" type="password"></ion-input>
-        </ion-item>
+        </div>
 
-        <ion-button expand="full" color="dark" (click)="login()">LOGIN</ion-button>
+        <ion-button expand="full" (click)="login()">LOGIN</ion-button>
     </ion-card>
     <div button [routerLink]="['/', 'register']">
         I don't have an account
