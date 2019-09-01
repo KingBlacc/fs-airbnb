@@ -7,7 +7,7 @@ router.post('/login', (req, res) => {
     authService.prototype.login(req.body).then(data => {
         res.json(data);
     }).catch(err => {
-        res.json("Error");
+        res.json(err);
     });
 });
 
@@ -15,7 +15,7 @@ router.post('/register', (req, res) => {
     authService.prototype.register(req.body).then(data => {
         res.json(data);
     }).catch(err => {
-        res.json("Error");
+        res.json(err);
     });
 });
 

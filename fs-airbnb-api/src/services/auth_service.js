@@ -23,7 +23,7 @@ module.exports = class AuthService {
                     new_user
                         .save()
                         .then(data => {
-                            resolve(data._id);
+                            resolve(data);
                         })
                         .catch(err => {
                             resolve(err);
@@ -39,7 +39,7 @@ module.exports = class AuthService {
             User.findOne({ email }).then((res, err) => {
                 if (res) {
                     if (bcrypt.compareSync(user.password, res.password)) {
-                        resolve(res._id);
+                        resolve(res);
                     } else {
                         reject("Password incorrect");
                     }
