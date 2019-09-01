@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -40,12 +41,12 @@ export class RegisterPage implements OnInit {
           "cell_number": this.cell_number,
           "user_type": this.user_type
         }
-        this.authService.registerUser(user).subscribe(data => {
-          if(data == "Error"){
-            this.presentAlert("Email address already exists", "Registration Failed")
-          }else{
-            this.authService.setUserId(data);
+        this.authService.registerUser(user).subscribe((data: User) => {
+          if(data._id != null){
+            this.authService.setUser(data);
             this.goToLogin();
+          }else{
+            this.presentAlert("Email address already exists", "Registration Failed");
           }
       });
       }

@@ -1,23 +1,25 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>Welcome </ion-title>
+        <ion-title>Airbnb</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <div>
-            <h3>Email Address</h3>
-            <ion-input [(ngModel)]="email" type="email"></ion-input>
-        </div>
-        <div>
-            <h3>Password</h3>
-            <ion-input [(ngModel)]="password" type="password"></ion-input>
-        </div>
+    <div class="container">
+        <ion-card>
+            <div>
+                <h3 class="input_label">Email Address</h3>
+                <ion-input [(ngModel)]="email" type="email"></ion-input>
+            </div>
+            <div>
+                <h3 class="input_label">Password</h3>
+                <ion-input [(ngModel)]="password" type="password"></ion-input>
+            </div>
 
-        <ion-button expand="full" (click)="login()">LOGIN</ion-button>
-    </ion-card>
-    <div button [routerLink]="['/', 'register']">
-        I don't have an account
+            <ion-button expand="full" (click)="login()">LOGIN</ion-button>
+        </ion-card>
+        <div button [routerLink]="['/', 'register']" class="register_action">
+            I don't have an account
+        </div>
     </div>
 </ion-content>

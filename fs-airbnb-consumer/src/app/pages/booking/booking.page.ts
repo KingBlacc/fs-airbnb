@@ -30,7 +30,7 @@ export class BookingPage implements OnInit {
 
   ngOnInit() {
 
-    if(this.authService.getUserId() == null){
+    if(this.authService.getUser() == null){
       this.router.navigateByUrl('/login');
     }
 
@@ -62,7 +62,7 @@ export class BookingPage implements OnInit {
       let booking_data = {
         "date_from": this.date_from,
         "date_to": this.date_to,
-        "user_id": this.authService.getUserId(),
+        "user_id": this.authService.getUser()._id,
         "property_id": this.property_id,
         "booking_status": "NEW"
       }

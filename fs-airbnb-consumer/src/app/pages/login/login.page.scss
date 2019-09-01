@@ -1,6 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
 ion-card {
-    margin-top: 25%;
-    padding: 10px;
+    padding: 30px;
+    margin: 10vw 20vw 10px 20vw;
 }
 
 ion-button {
@@ -12,4 +18,35 @@ ion-input {
     --padding: 5px;
     margin: 10px;
     --background: #fff;
+    font-size: 20px;
+}
+
+.input_label {
+    font-weight: 700;
+}
+
+.register_action {
+    margin: 0 20vw;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.register_action:hover {
+    text-decoration: underline;
+}
+
+@media(max-width: 700px) {
+    ion-card {
+        margin: 8vh 10vw 10px 10vw;
+    }
+    .register_action {
+        margin: 0 10vw;
+    }
+    .input_label {
+        font-size: 20px;
+    }
+    ion-input {
+        font-size: 15px;
+    }
 }

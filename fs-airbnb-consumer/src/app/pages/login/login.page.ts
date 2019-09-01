@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -29,12 +30,16 @@ export class LoginPage implements OnInit {
         "password": this.password
       }
 
-      this.authService.loginUser(user).subscribe(data => {
-          if(data == "Error"){
-            this.presentAlert("Incorrect Email/Password", "Login Failed")
-          }else{
-            this.authService.setUserId(data);
+      this.authService.loginUser(user).subscribe((data: User) => {
+          if(data._id != null){
+            if (data.user_type == "consumer" || data.user_type == "admin") {
+              this.authService.setUser(data);
             this.goToListings();
+            } else {
+              this.presentAlert(`Seems like only have access to the ${data.user_type} application`, "Unauthorized");
+            }
+          }else{
+            this.presentAlert(data, "Login Failed")
           }
       });
     }

@@ -13,15 +13,11 @@ export class UserProfilePage implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.id = this.authService.getUserId()
+    this.id = this.authService.getUser()
   }
 
   fetchUserDetails(){
     this.user = this.authService.getUsersById(this.id);
-  }
-
-  displayUser(){
-    
   }
 
 }

@@ -18,7 +18,7 @@ export class ListingsDetailsPage implements OnInit {
               private propertyService: PropertyService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    if(this.authService.getUserId() == null){
+    if(this.authService.getUser() == null){
       this.router.navigateByUrl('/login');
     }
     let id = this.activatedRoute.snapshot.paramMap.get('id');
