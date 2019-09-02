@@ -27,7 +27,7 @@ export class RegisterPage implements OnInit {
   }
 
   register(){
-    if (this.password == null) {
+    if (this.password == null || this.email == null) {
       this.presentAlert("Please fill password fields", "Registration Error");
     } else {
       if (this.password !== this.confirm_password) {
@@ -69,10 +69,10 @@ export class RegisterPage implements OnInit {
   }
 
   proceed(){
-    if (this.first_name == null || this.last_name == null || this.email == null || this.cell_number == null) {
+    if (this.first_name == null || this.last_name == null  || this.cell_number == null) {
       this.presentAlert("Please make sure that you fill in all the necessary fields", "Required Fields");
       document.getElementById("contact_fields").style.display = "block";
-      document.getElementById("").style.display = "none";
+      document.getElementById("password_fields").style.display = "none";
     } else {
       document.getElementById("contact_fields").style.display = "none";
       document.getElementById("password_fields").style.display = "block";

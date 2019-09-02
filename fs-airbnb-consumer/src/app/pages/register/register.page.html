@@ -5,23 +5,42 @@
 </ion-header>
 
 <ion-content>
-    <div class="credentials_container" id="contact_fields">
-        <ion-input placeholder="First Name" [(ngModel)]="first_name"></ion-input>
-        <ion-input placeholder="Last Name" [(ngModel)]="last_name"></ion-input>
-        <ion-input placeholder="Please enter an email" [(ngModel)]="email"></ion-input>
-        <ion-input placeholder="Enter cellphone number" [(ngModel)]="cell_number"></ion-input>
-        <div id="button_container">
-            <ion-button (click)="proceed()" expand="full">Proceed</ion-button>
-        </div>
+    <div id="container">
+        <ion-card id="contact_fields">
+            <div>
+                <h3 class="input_label">First Name</h3>
+                <ion-input [(ngModel)]="first_name"></ion-input>
+            </div>
+            <div>
+                <h3 class="input_label">Last Name</h3>
+                <ion-input [(ngModel)]="last_name"></ion-input>
+            </div>
+            <div>
+                <h3 class="input_label">Cell Number</h3>
+                <ion-input [(ngModel)]="cell_number"></ion-input>
+            </div>
+            <div id="button_container">
+                <ion-button (click)="proceed()" expand="full">Proceed</ion-button>
+            </div>
+        </ion-card>
+        <ion-card id="password_fields">
+            <div>
+                <h3 class="input_label">Email Address</h3>
+                <ion-input placeholder="Please enter an email" [(ngModel)]="email"></ion-input>
+            </div>
+            <div>
+                <h3 class="input_label">Password</h3>
+                <ion-input placeholder="Please enter password" [(ngModel)]="password" type="password"></ion-input>
+            </div>
+            <div>
+                <h3 class="input_label">Confirm Password</h3>
+                <ion-input placeholder="Please confirm password" [(ngModel)]="confirm_password" type="password"></ion-input>
+            </div>
+            <div id="button_container">
+                <ion-button (click)="register()" expand="full">Register</ion-button>
+            </div>
+        </ion-card>
     </div>
 
-    <div class="credentials_container" id="password_fields">
-        <ion-input placeholder="Please enter password" [(ngModel)]="password"></ion-input>
-        <ion-input placeholder="Please confirm password" [(ngModel)]="confirm_password"></ion-input>
-        <div id="button_container">
-            <ion-button (click)="register()" expand="full">Register</ion-button>
-        </div>
-    </div>
-
-    <ion-label button [routerLink]="['/', 'login']">I already have an account</ion-label>
+    <ion-label button [routerLink]="['/', 'login']" class="login_action">I already have an account</ion-label>
 </ion-content>

@@ -1,12 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+ion-card {
+    padding: 30px;
+    margin: 10vw 20vw 10px 20vw;
+}
+
 ion-button {
     margin: 15px;
     --background: #fc595e;
 }
 
-#password_fields {
-    display: none;
+ion-input {
+    --padding: 5px;
+    margin: 10px;
+    --background: #fff;
+    font-size: 20px;
 }
 
-#contact_fields {
-    display: block;
+.input_label {
+    font-weight: 700;
+}
+
+.login_action {
+    margin: 0 20vw;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.login_action:hover {
+    text-decoration: underline;
+}
+
+@media(max-width: 700px) {
+    ion-card {
+        margin: 8vh 10vw 10px 10vw;
+    }
+    .login_action {
+        margin: 0 10vw;
+    }
+    .input_label {
+        font-size: 20px;
+    }
+    ion-input {
+        font-size: 15px;
+    }
+}
+
+#password_fields {
+    display: none;
 }
