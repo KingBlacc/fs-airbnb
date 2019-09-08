@@ -27,7 +27,7 @@
             </ion-item>
             <ion-item lines="none" *ngIf="user.first_name !== null">
                 <ion-icon name="contacts" slot="start"></ion-icon>
-                <ion-label text-wrap>{{user.first_name}} {{user.last_name}}</ion-label>
+                <ion-label text-wrap *ngIf="user">{{user.first_name}} {{user.last_name}}</ion-label>
             </ion-item>
 
         </ion-card-content>
