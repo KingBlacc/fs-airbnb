@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user_model');
+const PropertyService = require('../services/property_services');
 
 //Get all users
 router.get('/', async(req, res) => {
@@ -51,7 +52,12 @@ router.put('/:id', async(req, res) => {
 router.delete('/:id', async(req, res) => {
 
     User.deleteOne({ _id: req.params.id }).then(
-            () => res.json({ msg: 'user was deleted' }))
+            () => PropertyService.prototype.deleteUserProperties(req.params.id)
+            .then(() =>
+                res.json({ msg: 'user was deleted' })
+            ).catch(() => {
+                res.json({ msg: 'Failed to delete user content' })
+            }))
         .catch(() => res.json({ msg: 'Unable to delete user' }));
 });
 module.exports = router;
