@@ -21,12 +21,18 @@ const UserModel = mongoose.Schema({
     },
     cell_number: {
         type: String,
-        required: true
+        required: true 
+    },
+    gender: {
+        type: String
+    },
+    birth_date: {
+        type: String 
     },
     user_type: {
         type: String,
         required: true
-    }
+    } 
 });
 
 UserModel.pre('save', function(next) {
@@ -34,4 +40,4 @@ UserModel.pre('save', function(next) {
     next();
 });
 
-module.exports = mongoose.model('Users', UserModel);
+module.exports = mongoose.model('Users', UserModel);      

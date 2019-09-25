@@ -25,7 +25,11 @@ router.post('/', (req, res) => {
         property_location: req.body.property_location,
         property_price: req.body.property_price,
         property_image_url: req.body.property_image_url,
-        user_id: req.body.user_id
+        user_id: req.body.user_id, 
+        bedroom_count: req.body.bedroom_count,
+        bathroom_count: req.body.bathroom_count, 
+        garage_count: req.body.garage_count,
+        minimum_stays: req.body.minimum_stays
     });
     _new_property.save().then(data => {
         res.json({ msg: 'New property has successfully been loaded' });

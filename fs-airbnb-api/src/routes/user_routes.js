@@ -28,6 +28,8 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password,
         cell_number: req.body.cell_number,
+        gender: req.body.gender,
+        birth_date: req.body.birth_date,
         user_type: req.body.user_type
     });
 
@@ -41,7 +43,13 @@ router.post('/', (req, res) => {
 //update user
 router.put('/:id', async(req, res) => {
     try {
-        const _user = await User.updateOne({ _id: req.params.id }, { $set: { email: req.body.email, cell_number: req.body.cell_number } });
+        const _user = await User.updateOne({ _id: req.params.id }, 
+        { $set: { email: req.body.email,
+        cell_number: req.body.cell_number,
+        gender: req.body.gender,
+        birth_date: req.body.birth_date,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name } });
         res.json({ msg: "User was updated successfully" });
     } catch (err) {
         res.json({ msg: "Failed to update the requested profile" })

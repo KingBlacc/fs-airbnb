@@ -20,7 +20,23 @@ const PropertyModel = mongoose.Schema({
     user_id: {
         type: String,
         required: true
+    }, 
+    bedroom_count: {
+        type: Number,
+        required: true
+    },
+    bathroom_count: {
+        type: Number,
+        required: true
+    }, 
+    garage_count: {
+        type: Number,
+        required: true
+    },
+    minimum_stays:{
+        type: Number,
+        required: true
     }
 });
 
-module.exports = mongoose.model('Properties', PropertyModel);
+module.exports = mongoose.model('Properties', PropertyModel); 
