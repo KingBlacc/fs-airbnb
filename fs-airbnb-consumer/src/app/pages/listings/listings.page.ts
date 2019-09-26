@@ -18,9 +18,9 @@ export class ListingsPage implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    if(this.authService.getUser() == null){
-      this.router.navigateByUrl('/login');
-    }
+    // if(this.authService.getUser() == null){
+    //   this.router.navigateByUrl('/login');
+    // }
     this.getProperties()
   }
 

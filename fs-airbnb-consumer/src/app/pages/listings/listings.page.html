@@ -1,9 +1,3 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Listings</ion-title>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
     <ion-list>
         <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'listings', item._id]">
@@ -16,4 +10,40 @@
             </ion-label>
         </ion-item>
     </ion-list>
+
+    <ion-card>
+        <ion-img src="../../../assets/background/house.png" class="property_image"></ion-img>
+        <div parent_container>
+            <div class="first_row">
+                <ion-label class="cost_pp">R890/pp</ion-label>
+                <div class="owner_profile">
+                    <ion-label class="owner_name">Bobby Carelse</ion-label>
+                    <ion-avatar>
+                        <img src="../../../assets/background/dp.png" class="profile_picture">
+                    </ion-avatar>
+                </div>
+            </div>
+
+            <div class="div_location">
+                <ion-icon name="pin"></ion-icon>
+                <ion-label class="lblLocation">Camps Bay, Cape Town, Western Cape</ion-label>
+            </div>
+
+            <div class="facilities">
+                <div class="bedrooms facility_item">
+                    <img src="../../../assets/icon/bed.png" class="icons">
+                    <ion-label class="lblBedrooms">2</ion-label>
+                </div>
+                <div class="bathrooms facility_item">
+                    <img src="../../../assets/icon/bathtub.png" class="icons">
+                    <ion-label class="lblBedrooms">1</ion-label>
+                </div>
+                <div class="garages facility_item">
+                    <img src="../../../assets/icon/car.png" class="icons">
+                    <ion-label class="lblBedrooms">1</ion-label>
+                </div>
+            </div>
+        </div>
+    </ion-card>
+
 </ion-content>
