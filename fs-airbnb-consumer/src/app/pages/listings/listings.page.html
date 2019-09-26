@@ -1,21 +1,9 @@
 <ion-content>
-    <ion-list>
-        <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'listings', item._id]">
-            <ion-avatar slot="start">
-                <img [src]="item.property_image_url">
-            </ion-avatar>
-            <ion-label text-wrap>
-                <h3>{{item.property_name}}</h3>
-                R{{item.property_price}}
-            </ion-label>
-        </ion-item>
-    </ion-list>
-
-    <ion-card>
-        <ion-img src="../../../assets/background/house.png" class="property_image"></ion-img>
+    <ion-card button *ngFor="let item of results" [routerLink]="['/', 'listings', item._id]">
+        <ion-img [src]="item.property_image_url" class="property_image"></ion-img>
         <div parent_container>
             <div class="first_row">
-                <ion-label class="cost_pp">R890/pp</ion-label>
+                <ion-label class="cost_pp">R{{item.property_price}}/pp</ion-label>
                 <div class="owner_profile">
                     <ion-label class="owner_name">Bobby Carelse</ion-label>
                     <ion-avatar>
@@ -26,21 +14,21 @@
 
             <div class="div_location">
                 <ion-icon name="pin"></ion-icon>
-                <ion-label class="lblLocation">Camps Bay, Cape Town, Western Cape</ion-label>
+                <ion-label class="lblLocation">{{item.property_location}}</ion-label>
             </div>
 
             <div class="facilities">
                 <div class="bedrooms facility_item">
                     <img src="../../../assets/icon/bed.png" class="icons">
-                    <ion-label class="lblBedrooms">2</ion-label>
+                    <ion-label class="lblBedrooms">{{item.bedroom_count}}</ion-label>
                 </div>
                 <div class="bathrooms facility_item">
                     <img src="../../../assets/icon/bathtub.png" class="icons">
-                    <ion-label class="lblBedrooms">1</ion-label>
+                    <ion-label class="lblBedrooms">{{item.bathroom_count}}</ion-label>
                 </div>
                 <div class="garages facility_item">
                     <img src="../../../assets/icon/car.png" class="icons">
-                    <ion-label class="lblBedrooms">1</ion-label>
+                    <ion-label class="lblBedrooms">{{item.garage_count}}</ion-label>
                 </div>
             </div>
         </div>

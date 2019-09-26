@@ -1,6 +1,7 @@
+import { User } from './../../models/user';
+import { Property } from './../../models/property';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { PropertyService } from 'src/app/services/property.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class ListingsPage implements OnInit {
 
-  results: Observable<any>;
+  results: Property[];
+
 
   constructor(private propertyService: PropertyService,
               private authService: AuthService,
@@ -21,11 +23,15 @@ export class ListingsPage implements OnInit {
     // if(this.authService.getUser() == null){
     //   this.router.navigateByUrl('/login');
     // }
-    this.getProperties()
+    this.getProperties();
   }
 
   getProperties(){
-    this.results = this.propertyService.getAllProperties();
+    var data;
+    this.propertyService.getAllProperties().subscribe((res: Property[]) => {
+      this.results = res;
+      data = res;
+    });
   }
 
 }
