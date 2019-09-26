@@ -1,46 +1,18 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Register</ion-title>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
-    <div id="container">
-        <ion-card id="contact_fields">
-            <div>
-                <h3 class="input_label">First Name</h3>
-                <ion-input [(ngModel)]="first_name"></ion-input>
-            </div>
-            <div>
-                <h3 class="input_label">Last Name</h3>
-                <ion-input [(ngModel)]="last_name"></ion-input>
-            </div>
-            <div>
-                <h3 class="input_label">Cell Number</h3>
-                <ion-input [(ngModel)]="cell_number"></ion-input>
-            </div>
-            <div id="button_container">
-                <ion-button (click)="proceed()" expand="full">Proceed</ion-button>
-            </div>
-        </ion-card>
-        <ion-card id="password_fields">
-            <div>
-                <h3 class="input_label">Email Address</h3>
-                <ion-input placeholder="Please enter an email" [(ngModel)]="email"></ion-input>
-            </div>
-            <div>
-                <h3 class="input_label">Password</h3>
-                <ion-input placeholder="Please enter password" [(ngModel)]="password" type="password"></ion-input>
-            </div>
-            <div>
-                <h3 class="input_label">Confirm Password</h3>
-                <ion-input placeholder="Please confirm password" [(ngModel)]="confirm_password" type="password"></ion-input>
-            </div>
-            <div id="button_container">
-                <ion-button (click)="register()" expand="full">Register</ion-button>
-            </div>
-        </ion-card>
+    <div class="parent_container">
+        <div class="app_title title_container">JOINT</div>
+        <div class="auth_container" id="contact_fields">
+            <ion-input placeholder="First Name" class="edit_fields" [(ngModel)]="first_name"></ion-input>
+            <ion-input placeholder="Last Name" class="edit_fields" [(ngModel)]="last_name"></ion-input>
+            <ion-input placeholder="Cell Number" class="edit_fields" [(ngModel)]="cell_number"></ion-input>
+            <div><button class="btnProceed btn" (click)="proceed()">Proceed</button></div>
+        </div>
+        <div class="auth_container" id="password_fields">
+            <ion-input placeholder="Email Address" class="edit_fields" [(ngModel)]="email"></ion-input>
+            <ion-input placeholder="Password" class="edit_fields" [(ngModel)]="password" type="password"></ion-input>
+            <ion-input placeholder="Re-type Password" class="edit_fields" [(ngModel)]="confirm_password" type="password"></ion-input>
+            <div><button class="btnRegister btn" (click)="register()">Sign Up</button></div>
+        </div>
+        <ion-label button [routerLink]="['/', 'login']" class="labels">I already have an account</ion-label>
     </div>
-
-    <ion-label button [routerLink]="['/', 'login']" class="login_action">I already have an account</ion-label>
 </ion-content>
