@@ -2,7 +2,6 @@ import { AuthService } from './../../services/auth.service';
 import { PropertyService } from './../../services/property.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from './../../services/api.service';
 
 @Component({
   selector: 'app-listings-details',
@@ -14,8 +13,8 @@ export class ListingsDetailsPage implements OnInit {
   information = null;
   user = null;
   constructor(private activatedRoute: ActivatedRoute,
-              private apiService: ApiService,
-              private propertyService: PropertyService, private router: Router, private authService: AuthService) { }
+              private authService: AuthService,
+              private propertyService: PropertyService, private router: Router) { }
 
   ngOnInit() {
     if(this.authService.getUser() == null){
@@ -26,7 +25,7 @@ export class ListingsDetailsPage implements OnInit {
     this.propertyService.getPropertyDetails(id).subscribe(result => {
       console.log('details: ', result);
       this.information = result;
-      this.apiService.getUserDetails(this.information.user_id).subscribe(data =>{
+      this.authService.getUsersById(this.information.user_id).subscribe(data =>{
         this.user = data;
       });
     });

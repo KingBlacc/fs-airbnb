@@ -1,64 +1,57 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 50vh;
-    justify-content: center;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.parent_container {
     align-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
+    justify-items: center;
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url('../../../assets/background/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-ion-card {
-    padding: 30px;
-    margin: 20px;
-    width: 30vw;
-    min-width: 300px;
-}
-
-ion-button {
-    margin: 15px;
-    --background: #fc595e;
-}
-
-ion-input {
-    --padding: 5px;
-    margin: 10px;
-    --background: #fff;
-    font-size: 20px;
-}
-
-.input_label {
-    font-weight: 700;
-}
-
-.register_action {
-    margin: 0 20vw;
-    cursor: pointer;
-    font-size: 15px;
+.app_title {
+    font-family: 'Arvo', serif;
+    font-size: 60px;
+    margin: 110px auto 0px auto;
     font-weight: bold;
 }
 
-.register_action:hover {
-    text-decoration: underline;
+.auth_container {
+    margin: 80px auto 0 auto;
 }
 
-@media(max-width: 700px) {
-    .container {
-        width: 100vw;
-        height: 70vh;
-    }
-    ion-card {
-        margin: 8vh 10vw 10px 10vw;
-        min-width: 300px;
-    }
-    .register_action {
-        margin: 0 10vw;
-    }
-    .input_label {
-        font-size: 20px;
-    }
-    ion-input {
-        font-size: 15px;
-    }
+.edit_fields {
+    font-size: 20px;
+    width: 100%;
+}
+
+.btnSignIn {
+    background-color: #C223BD;
+    padding: 10px 90px;
+    margin: 60px auto 0 auto;
+    font-size: 25px;
+    border-radius: 25px;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.lblForgot {
+    font-size: 20px;
+}
+
+.lblCreateAccount {
+    font-size: 18px;
+    margin-top: 10px;
 }

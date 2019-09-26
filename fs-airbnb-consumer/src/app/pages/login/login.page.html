@@ -1,25 +1,14 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Airbnb</ion-title>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content>
-    <div class="container">
-        <ion-card>
-            <div>
-                <h3 class="input_label">Email Address</h3>
-                <ion-input [(ngModel)]="email" type="email"></ion-input>
-            </div>
-            <div>
-                <h3 class="input_label">Password</h3>
-                <ion-input [(ngModel)]="password" type="password"></ion-input>
-            </div>
-
-            <ion-button expand="full" (click)="login()">LOGIN</ion-button>
-        </ion-card>
-        <div button [routerLink]="['/', 'register']" class="register_action">
-            I don't have an account
+    <div class="parent_container">
+        <div class="app_title title_container">JOINT</div>
+        <div class="auth_container">
+            <ion-input placeholder="Username" class="edit_fields" [(ngModel)]="email" type="email"></ion-input>
+            <ion-input placeholder="Password" class="edit_fields" [(ngModel)]="password" type="password"></ion-input>
+        </div>
+        <div><button class="btnSignIn" (click)="login()">Sign In</button></div>
+        <div class="labels">
+            <ion-label class="lblForgot">Forgot Password?</ion-label>
+            <ion-label class="lblCreateAccount" button [routerLink]="['/', 'register']">Don't have an account?</ion-label>
         </div>
     </div>
 </ion-content>

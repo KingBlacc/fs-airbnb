@@ -1,5 +1,4 @@
 import { AuthService } from './../../services/auth.service';
-import { ApiService } from './../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PropertyService } from 'src/app/services/property.service';
